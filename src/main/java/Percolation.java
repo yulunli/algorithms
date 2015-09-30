@@ -3,10 +3,10 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private int size;
-    private int vTop;
-    private int vBottom;
-    private boolean[] open;
+    private int[] status;
     private WeightedQuickUnionUF uf;
+
+    private boolean percolate = false;
 
     /**
      * create N-by-N grid, with all sites blocked
@@ -17,9 +17,7 @@ public class Percolation {
             throw new IllegalArgumentException();
         }
         size = N;
-        vTop = N * N;
-        vBottom = N * N + 1;
-        open = new boolean[N * N];
+        status = new int[N * N];
         uf = new WeightedQuickUnionUF(N * N + 2);
     }
 
@@ -34,10 +32,10 @@ public class Percolation {
         }
         if (!isOpen(i, j)) {
             int site = (i - 1) * size + (j - 1);
-            open[site] = true;
+//            open[site] = true;
             // Union top
             if (i == 1) {
-                uf.union(site, vTop);
+//                uf.union(site, vTop);
             } else if (isOpen(i - 1, j)) {
                 uf.union(site, (i - 2) * size + (j - 1));
             }
@@ -50,11 +48,11 @@ public class Percolation {
                 uf.union(site, (i - 1) * size + j);
             }
             // Union bottom
-            if (i == size && uf.connected(site, vTop)) {
-                uf.union(site, vBottom);
-            } else if (i < size && isOpen(i + 1, j)) {
-                uf.union(site, i * size + (j - 1));
-            }
+//            if (i == size && uf.connected(site, vTop)) {
+//                uf.union(site, vBottom);
+//            } else if (i < size && isOpen(i + 1, j)) {
+//                uf.union(site, i * size + (j - 1));
+//            }
         }
     }
 
@@ -68,7 +66,8 @@ public class Percolation {
             throw new IndexOutOfBoundsException();
         }
         int site = (i - 1) * size + (j - 1);
-        return open[site];
+//        return open[site];
+        return false;
     }
 
     /**
@@ -79,7 +78,8 @@ public class Percolation {
             throw new IndexOutOfBoundsException();
         }
         int site = (i - 1) * size + (j - 1);
-        return uf.connected(site, vTop);
+//        return uf.connected(site, vTop);
+        return false;
     }
 
     /**
@@ -87,7 +87,7 @@ public class Percolation {
      * @return result
      */
     public boolean percolates() {
-        return uf.connected(vTop, vBottom);
+        return percolate;
     }
 
     /**
