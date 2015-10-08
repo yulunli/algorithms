@@ -3,7 +3,8 @@ import java.util.Comparator;
 public class Point implements Comparable<Point> {
     private int x, y;
     public Point(int x, int y) {
-
+        this.x = x;
+        this.y = y;
     }
 
     public void draw() {
@@ -15,7 +16,7 @@ public class Point implements Comparable<Point> {
 
     @Override
     public String toString() {
-        return null;
+        return String.format("<%d, %d>", x, y);
     }
 
     public int compareTo(Point that) {
@@ -23,7 +24,7 @@ public class Point implements Comparable<Point> {
         if (y_ == 0) {
             return compareInt(this.x, that.x);
         } else  {
-            return y;
+            return y_;
         }
     }
 
@@ -38,14 +39,22 @@ public class Point implements Comparable<Point> {
     }
 
     public double slopeTo(Point that) {
+        if (that == null) {
+            throw new NullPointerException();
+        }
         if (this.x == that.x) {
             if (this.y == that.y) {
                 return Double.NEGATIVE_INFINITY;
             } else {
                 return Double.POSITIVE_INFINITY;
             }
+        } else {
+            if (this.y == that.y) {
+                return 0.0;
+            } else {
+                return 1.0 * (that.y - this.y) / (that.x - this.x);
+            }
         }
-        return (that.y - this.y) / (that.x - this.x);
     }
 
     public Comparator<Point> slopeOrder() {

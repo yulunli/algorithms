@@ -7,7 +7,12 @@ public class BruteCollinearPoints {
 
     public BruteCollinearPoints(Point[] points) {
         Arrays.sort(points);
-        List<LineSegment> lines = new ArrayList<LineSegment>();
+        for (int i = 0; i < points.length - 1; i++) {
+            if (points[i].compareTo(points[i + 1]) == 0) {
+                throw new IllegalArgumentException();
+            }
+        }
+        List<LineSegment> lines = new ArrayList<>();
         for (int i = 0; i < points.length - 3; i++) {
             Point p = points[i];
             for (int j = i + 1; j < points.length - 2; j++) {
@@ -37,6 +42,6 @@ public class BruteCollinearPoints {
     }
 
     public LineSegment[] segments() {
-        return segments;
+        return segments.clone();
     }
 }
