@@ -12,3 +12,10 @@ zip 8puzzle.zip -j src/main/java/Board.java src/main/java/Solver.java
 ```
 zip kdtree.zip -j src/main/java/PointSET.java src/main/java/KdTree.java
 ```
+
+## Part 2
+
+### Homework 1
+```
+zip wordnet.zip -j src/main/java/SAP.java src/main/java/WordNet.java src/main/java/Outcast.java
+```
