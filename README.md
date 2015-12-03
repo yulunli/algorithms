@@ -19,3 +19,8 @@ zip kdtree.zip -j src/main/java/PointSET.java src/main/java/KdTree.java
 ```
 zip wordnet.zip -j src/main/java/SAP.java src/main/java/WordNet.java src/main/java/Outcast.java
 ```
+
+### Homework 2
+```
+zip seamCarving.zip -j src/main/java/SeamCarver.java
+```
