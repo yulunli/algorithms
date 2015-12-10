@@ -24,3 +24,8 @@ zip wordnet.zip -j src/main/java/SAP.java src/main/java/WordNet.java src/main/ja
 ```
 zip seamCarving.zip -j src/main/java/SeamCarver.java
 ```
+
+### Homework 3
+```
+zip  baseball.zip -j src/main/java/BaseballElimination.java
+```
