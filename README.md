@@ -29,3 +29,12 @@ zip seamCarving.zip -j src/main/java/SeamCarver.java
 ```
 zip  baseball.zip -j src/main/java/BaseballElimination.java
 ```
+
+### Homework 4
+```
+zip boggle.zip src/main/java/BoggleSolver.java
+```
+
+### Homework 5
+```
+```
