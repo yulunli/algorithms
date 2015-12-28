@@ -32,9 +32,10 @@ zip  baseball.zip -j src/main/java/BaseballElimination.java
 
 ### Homework 4
 ```
-zip boggle.zip src/main/java/BoggleSolver.java
+zip -j boggle.zip src/main/java/BoggleSolver.java
 ```
 
 ### Homework 5
 ```
+zip -j burrows.zip src/main/java/MoveToFront.java src/main/java/BurrowsWheeler.java src/main/java/CircularSuffixArray
 ```
