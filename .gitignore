@@ -1,5 +1,2 @@
-.idea/
-*.iml
-
-*.zip
-target/
+*.class
+*.jar
